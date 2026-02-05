@@ -20,6 +20,6 @@ export enum ImageSize {
 
 export interface AIState {
   isLoading: boolean;
-  result: string | null; // URL or text result
+  result: string | null; // https://www.instagram.com/omnistrike.ai/
   error: string | null;
 }
