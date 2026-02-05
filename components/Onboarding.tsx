@@ -32,11 +32,25 @@ const Onboarding: React.FC = () => {
     }
   };
 
-  const handleStep4 = () => {
-    // Here we would submit the data (handle + email) to backend/Zapier
-    console.log("Form Submitted:", state); 
-    setState(prev => ({ ...prev, isCompleted: true }));
-  };
+ const handleStep4 = async () => {
+  // Envoi des données vers ton compte Formspree
+  try {
+    const response = await fetch("https://formspree.io/f/TON_ID_ICI", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(state),
+    });
+
+    if (response.ok) {
+      // Si l'envoi fonctionne, on affiche l'écran de succès
+      setState(prev => ({ ...prev, isCompleted: true }));
+    } else {
+      alert("Erreur lors de l'envoi. Vérifie ta connexion.");
+    }
+  } catch (error) {
+    console.error("Erreur technique :", error);
+  }
+};
 
   const ProgressBar = () => (
     <div className="w-full h-1 bg-gray-200 rounded-full mb-8 overflow-hidden">
