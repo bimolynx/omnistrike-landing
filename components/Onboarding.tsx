@@ -35,7 +35,7 @@ const Onboarding: React.FC = () => {
  const handleStep4 = async () => {
   // Envoi des données vers ton compte Formspree
   try {
-    const response = await fetch("https://formspree.io/f/TON_ID_ICI", {
+    const response = await fetch("https://formspree.io/f/mkovwzld", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(state),
